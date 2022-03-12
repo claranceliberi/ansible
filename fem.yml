@@ -3,9 +3,18 @@
   tasks: 
   - name: Install zsh
     apt: name=zsh
+
   - name: Change Shell
-    apt: chsh -s `which zsh`
+    shell: chsh -s `which zsh`
+
   - name: Install Oh my zsh
-    apt: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-  - name: Install Oh my zsh
-    apt: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+    shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+
+  - name: Install the zsh plugin auto suggestion
+    ansible.builtin.git:
+      repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
+      dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
+
+  - name: Update our zshrc
+    shell: set -i 's/(git/(git zsh-autosuggestions' ~/.zshrc
+    
