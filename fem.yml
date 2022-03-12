@@ -1,0 +1,11 @@
+- hosts: localhost
+  become: true
+  tasks: 
+  - name: Install zsh
+    apt: name=zsh
+  - name: Change Shell
+    apt: chsh -s `which zsh`
+  - name: Install Oh my zsh
+    apt: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+  - name: Install Oh my zsh
+    apt: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
