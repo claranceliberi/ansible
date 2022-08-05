@@ -1,0 +1,15 @@
+---
+# comment
+
+name: Liberi Liberi
+occupation: Tester
+state: AF,RW
+
+#dictionaries
+cheeses:
+  - gogonzola
+  - brie
+  - swiss
+
+# list
+cheeses2: ['gorgnozola','brie', 'swiss']
